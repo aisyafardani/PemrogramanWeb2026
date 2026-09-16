@@ -21,6 +21,10 @@ a:hover {
     text-decoration: underline;
 }
 
+h1, h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
 /* ===== Header & Navbar (Flexbox) ===== */
 header {
     background-color: #c42e88;
@@ -83,7 +87,7 @@ section h2 {
 
 .dashboard-cards article h3 {
     font-size: 0.95rem;
-    color: #c42e88;
+    color: #7a4265;
     margin-bottom: 0.5rem;
 }
 
@@ -111,11 +115,11 @@ thead {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f7f9fb;
+    background-color: #fdf6f9;
 }
 
 tbody tr:hover {
-    background-color: #eef4fa;
+    background-color: #faedf4;
 }
 
 td button {
@@ -170,7 +174,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-    background-color: #c42e88;
+    background-color: #a3226f;
 }
 
 /* ===== Footer ===== */
@@ -186,7 +190,7 @@ footer {
     overflow-x: auto;
 }
 
-/* ===== Hamburger Menu (checkbox hack) ===== */
+/* ===== Hamburger Menu ===== */
 .nav-toggle {
     display: none;
 }
