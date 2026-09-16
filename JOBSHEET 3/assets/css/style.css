@@ -8,7 +8,8 @@
 body {
     font-family: "Segoe UI", Arial, sans-serif;
     color: #2b2b2b;
-    background-color: #f5f6f8;
+    background: linear-gradient(135deg, #fce4ec 0%, #f5f6f8 100%);
+    min-height: 100vh;
     line-height: 1.5;
 }
 
@@ -71,9 +72,14 @@ section.hero-section {
 }
 
 section h2 {
-    text-align: center; /* Membuat judul "Ringkasan" dan "Selamat Datang..." ke tengah */
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: 0.75rem;
     color: #c42e88;
+}
+
+section p {
+    text-align: center; 
+    color: #666;
 }
 
 /* ===== Kartu Statistik (CSS Grid) ===== */
@@ -86,9 +92,15 @@ section h2 {
 .dashboard-cards article {
     background-color: #fdf2f7;
     border: 1px solid #f8e1ee;
-    border-radius: 8px;
-    padding: 1.25rem;
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
     text-align: center; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.dashboard-cards article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(196, 46, 136, 0.15);
 }
 
 .dashboard-cards article h3 {
@@ -186,7 +198,7 @@ form button[type="submit"]:hover {
 /* ===== Footer ===== */
 footer {
     text-align: center;
-    padding: 1.25rem;
+    padding: 1.5rem;
     color: #7a8794;
     font-size: 0.9rem;
 }
