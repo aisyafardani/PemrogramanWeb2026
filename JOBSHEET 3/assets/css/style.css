@@ -6,15 +6,14 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    color: #2b2b2b;
-    background: linear-gradient(135deg, #fce4ec 0%, #f5f6f8 100%);
-    min-height: 100vh;
-    line-height: 1.5;
+    background-color: #f8eaf2;
 }
 
 a {
-    color: #c42e88;
+    color: #c34d8d;
     text-decoration: none;
 }
 
@@ -26,15 +25,15 @@ h1, h2 {
     font-family: Georgia, "Times New Roman", serif;
 }
 
-/* ===== Header & Navbar (Flexbox) ===== */
+/* ===== Header & Navbar ===== */
 header {
-    background-color: #c42e88;
+    width: 100%;
+    background-color: #c94f91;
     color: #fff;
-    padding: 1rem 1.5rem;
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 header h1 {
@@ -64,25 +63,26 @@ section {
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 4px rgba(100, 130, 160, 0.10);
 }
 
 section.hero-section {
     text-align: center;
+    background-color: #fff7fb;
 }
 
 section h2 {
     text-align: center;
     margin-bottom: 0.75rem;
-    color: #c42e88;
+    color: #c34d8d;
 }
 
 section p {
-    text-align: center; 
-    color: #666;
+    text-align: center;
+    color: #667085;
 }
 
-/* ===== Kartu Statistik (CSS Grid) ===== */
+/* ===== Kartu Statistik ===== */
 .dashboard-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -90,29 +90,29 @@ section p {
 }
 
 .dashboard-cards article {
-    background-color: #fdf2f7;
-    border: 1px solid #f8e1ee;
+    background-color: #fceff6;
+    border: 1px solid #f3d6e7;
     border-radius: 10px;
     padding: 1.5rem 1rem;
-    text-align: center; 
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .dashboard-cards article:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(196, 46, 136, 0.15);
+    box-shadow: 0 4px 10px rgba(100, 150, 190, 0.12);
 }
 
 .dashboard-cards article h3 {
     font-size: 0.95rem;
-    color: #7a4265;
+    color: #607d99;
     margin-bottom: 0.5rem;
 }
 
 .dashboard-cards article p {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #c42e88;
+    color: #c34d8d;
 }
 
 /* ===== Tabel ===== */
@@ -124,22 +124,23 @@ table {
 th, td {
     text-align: left;
     padding: 0.65rem 0.75rem;
-    border-bottom: 1px solid #e2e6ea;
+    border-bottom: 1px solid #e1e7ee;
 }
 
 thead {
-    background-color: #c42e88;
+    background-color: #78a9c7;
     color: #fff;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #fdf6f9;
+    background-color: #f5f9fc;
 }
 
 tbody tr:hover {
-    background-color: #faedf4;
+    background-color: #fceff6;
 }
 
+/* ===== Button dalam Tabel ===== */
 td button {
     padding: 0.35rem 0.7rem;
     margin-right: 0.35rem;
@@ -149,13 +150,15 @@ td button {
     font-size: 0.85rem;
 }
 
+/* Edit */
 td button:first-of-type {
-    background-color: #f0ad4e;
-    color: #fff;
+    background-color: #f0b6cf;
+    color: #75445d;
 }
 
+/* Hapus */
 td button:last-of-type {
-    background-color: #d9534f;
+    background-color: #e9a5a5;
     color: #fff;
 }
 
@@ -168,7 +171,7 @@ form label {
     display: block;
     margin-bottom: 0.35rem;
     font-weight: 600;
-    color: #444;
+    color: #555;
 }
 
 form input,
@@ -176,13 +179,20 @@ form select {
     width: 100%;
     max-width: 400px;
     padding: 0.55rem 0.7rem;
-    border: 1px solid #cdd4da;
+    border: 1px solid #cbd8e4;
     border-radius: 4px;
     font-size: 1rem;
 }
 
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #78a9c7;
+}
+
+/* ===== Submit Button ===== */
 form button[type="submit"] {
-    background-color: #c42e88;
+    background-color: #78a9c7;
     color: #fff;
     border: none;
     padding: 0.6rem 1.5rem;
@@ -192,7 +202,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-    background-color: #a3226f;
+    background-color: #6595b3;
 }
 
 /* ===== Footer ===== */
@@ -220,9 +230,9 @@ footer {
     cursor: pointer;
 }
 
-/* ===== Responsive Breakpoints ===== */
+/* ===== Responsive ===== */
 
-/* Tablet ke bawah */
+/* Tablet */
 @media (max-width: 768px) {
     .dashboard-cards {
         grid-template-columns: repeat(2, 1fr);

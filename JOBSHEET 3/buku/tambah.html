@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIMPUS-Mini | Tambah Buku</title>
+    <title>Sistem Pembelian Buku Mini | Beranda</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <header>
-        <h1>SIMPUS-Mini</h1>
+        <h1>TOKU-Mini</h1>
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <label for="nav-toggle" class="nav-toggle-label">&#9776;</label>
         <nav>
@@ -17,51 +17,52 @@
                 <li><a href="list.html">Daftar Buku</a></li>
                 <li><a href="tambah.html">Tambah Buku</a></li>
                 <li><a href="../anggota/list.html">Daftar Anggota</a></li>
+                <li><a href="../anggota/tambah.html">Tambah Anggota</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>Tambah Buku</h2>
+            <h2>Tambah Produk Buku</h2>
             <form>
                 <p>
-                    <label for="judul">Judul</label><br>
+                    <label for="judul">Kode Buku</label><br>
                     <input type="text" id="judul" name="judul" required>
                 </p>
                 <p>
-                    <label for="pengarang">Pengarang</label><br>
+                    <label for="pengarang">Judul Buku</label><br>
                     <input type="text" id="pengarang" name="pengarang" required>
                 </p>
                 <p>
-                    <label for="tahun">Tahun Terbit</label><br>
+                    <label for="tahun">Kategori</label><br>
                     <input type="number" id="tahun" name="tahun" min="1900" max="2026" required>
                 </p>
                 <p>
-                    <label for="isbn">ISBN</label><br>
+                    <label for="isbn">Harga (Rp)</label><br>
                     <input type="text" id="isbn" name="isbn">
                 </p>
                 <p>
-                    <label for="stok">Stok</label><br>
+                    <label for="stok">Jumlah Stok</label><br>
                     <input type="number" id="stok" name="stok" min="0" required>
                 </p>
                 <p>
                     <label for="kategori">Kategori</label><br>
                     <select id="kategori" name="kategori">
-                        <option value="fiksi">Fiksi</option>
-                        <option value="non-fiksi">Non-Fiksi</option>
-                        <option value="referensi">Referensi</option>
+                        <option value="fiksi">Novel</option>
+                        <option value="non-fiksi">Pelajaran</option>
+                        <option value="referensi">Cerita Fiksi</option>
                     </select>
                 </p>
                 <p>
-                    <button type="submit">Simpan</button>
+                    <button type="submit">Simpan Buku</button>
                 </p>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 3</p>
+        <p>&copy; 2026 TOKU-Mini &mdash; Jobsheet 3</p>
     </footer>
 </body>
 </html>
