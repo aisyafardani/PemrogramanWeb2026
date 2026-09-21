@@ -34,6 +34,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 header h1 {
@@ -49,6 +50,16 @@ header nav ul {
 header nav a {
     color: #fff;
     font-weight: 500;
+}
+
+/* Hamburger Button */
+.nav-toggle-label {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #fff;
+    cursor: pointer;
 }
 
 /* ===== Main Layout ===== */
@@ -115,7 +126,32 @@ section p {
     color: #c34d8d;
 }
 
+/* ===== Search Box ===== */
+.search-box {
+    margin-bottom: 1.25rem;
+}
+
+.search-box label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: #555;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #cbd8e4;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
 /* ===== Tabel ===== */
+.table-responsive {
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -123,7 +159,7 @@ table {
 
 th, td {
     text-align: left;
-    padding: 0.65rem 0.75rem;
+    padding: 0.65rem 0.7rem;
     border-bottom: 1px solid #e1e7ee;
 }
 
@@ -140,7 +176,7 @@ tbody tr:hover {
     background-color: #fceff6;
 }
 
-/* ===== Button dalam Tabel ===== */
+/* Button dalam Tabel */
 td button {
     padding: 0.35rem 0.7rem;
     margin-right: 0.35rem;
@@ -150,19 +186,19 @@ td button {
     font-size: 0.85rem;
 }
 
-/* Edit */
+td button.btn-edit,
 td button:first-of-type {
     background-color: #f0b6cf;
     color: #75445d;
 }
 
-/* Hapus */
+td button.btn-hapus,
 td button:last-of-type {
     background-color: #e9a5a5;
     color: #fff;
 }
 
-/* ===== Form ===== */
+/* ===== Form & Validasi Inline ===== */
 form p {
     margin-bottom: 1rem;
 }
@@ -190,7 +226,20 @@ form select:focus {
     border-color: #78a9c7;
 }
 
-/* ===== Submit Button ===== */
+/* Indikator Error JS */
+.error-msg {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+input.input-error,
+select.input-error {
+    border-color: #d9534f !important;
+}
+
+/* Submit Button */
 form button[type="submit"] {
     background-color: #78a9c7;
     color: #fff;
@@ -211,23 +260,6 @@ footer {
     padding: 1.5rem;
     color: #7a8794;
     font-size: 0.9rem;
-}
-
-/* ===== Tabel Responsif ===== */
-.table-responsive {
-    overflow-x: auto;
-}
-
-/* ===== Hamburger Menu ===== */
-.nav-toggle {
-    display: none;
-}
-
-.nav-toggle-label {
-    display: none;
-    font-size: 1.6rem;
-    color: #fff;
-    cursor: pointer;
 }
 
 /* ===== Responsive ===== */
@@ -256,7 +288,7 @@ footer {
         margin-top: 1rem;
     }
 
-    .nav-toggle:checked ~ nav {
+    header nav.nav-open {
         display: block;
     }
 
@@ -270,7 +302,8 @@ footer {
     }
 
     form input,
-    form select {
+    form select,
+    .search-box input {
         max-width: 100%;
     }
 }

@@ -26,24 +26,24 @@
             <h2>Tambah Transaksi Pembelian</h2>
             <form id="form-tambah">
                 <p>
-                    <label for="nama">No. Nota / Transaksi</label><br>
+                    <label for="no_nota">No. Nota / Transaksi</label><br>
+                    <input type="text" id="no_nota" name="no_nota" required>
+                </p>
+                <p>
+                    <label for="nama">Nama Pembeli / Anggota</label><br>
                     <input type="text" id="nama" name="nama" required>
                 </p>
                 <p>
-                    <label for="no_anggota">Nama Pembeli</label><br>
-                    <input type="text" id="no_anggota" name="no_anggota" required>
+                    <label for="judul_buku">Judul Buku</label><br>
+                    <input type="text" id="judul_buku" name="judul_buku">
                 </p>
                 <p>
-                    <label for="alamat">Judul Buku</label><br>
-                    <input type="text" id="alamat" name="alamat">
+                    <label for="penerbit">Nama Penerbit</label><br>
+                    <input type="text" id="penerbit" name="penerbit">
                 </p>
                 <p>
-                    <label for="no_hp">Nama Penerbit</label><br>
-                    <input type="text" id="no_hp" name="no_hp">
-                </p>
-                <p>
-                    <label for="no_hp">Jumlah Beli</label><br>
-                    <input type="text" id="no_hp" name="no_hp">
+                    <label for="stok">Jumlah Beli</label><br>
+                    <input type="number" id="stok" name="stok" min="1" required>
                 </p>
                 <p>
                     <button type="submit">Simpan Transaksi</button>

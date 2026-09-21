@@ -26,20 +26,24 @@
             <h2>Tambah Produk Buku</h2>
             <form id="form-tambah">
                 <p>
-                    <label for="judul">Kode Buku</label><br>
+                    <label for="kode_buku">Kode Buku</label><br>
+                    <input type="text" id="kode_buku" name="kode_buku" required>
+                </p>
+                <p>
+                    <label for="judul">Judul Buku</label><br>
                     <input type="text" id="judul" name="judul" required>
                 </p>
                 <p>
-                    <label for="pengarang">Judul Buku</label><br>
+                    <label for="pengarang">Pengarang</label><br>
                     <input type="text" id="pengarang" name="pengarang" required>
                 </p>
                 <p>
-                    <label for="tahun">Kategori</label><br>
+                    <label for="tahun">Tahun Terbit</label><br>
                     <input type="number" id="tahun" name="tahun" min="1900" max="2026" required>
                 </p>
                 <p>
-                    <label for="isbn">Harga (Rp)</label><br>
-                    <input type="text" id="isbn" name="isbn">
+                    <label for="harga">Harga (Rp)</label><br>
+                    <input type="number" id="harga" name="harga">
                 </p>
                 <p>
                     <label for="stok">Jumlah Stok</label><br>
