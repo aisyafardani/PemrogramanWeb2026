@@ -307,3 +307,11 @@ footer {
         max-width: 100%;
     }
 }
+
+.error {
+    color: #d9534f;        
+    font-size: 0.85rem;    
+    display: block;        
+    margin-top: 0.25rem;   
+    font-weight: 500;
+}
