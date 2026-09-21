@@ -1,0 +1,276 @@
+/* ===== Reset & Base ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f8eaf2;
+}
+
+a {
+    color: #c34d8d;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ===== Header & Navbar ===== */
+header {
+    width: 100%;
+    background-color: #c94f91;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 1.4rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+}
+
+header nav a {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* ===== Main Layout ===== */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 4px rgba(100, 130, 160, 0.10);
+}
+
+section.hero-section {
+    text-align: center;
+    background-color: #fff7fb;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: #c34d8d;
+}
+
+section p {
+    text-align: center;
+    color: #667085;
+}
+
+/* ===== Kartu Statistik ===== */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.dashboard-cards article {
+    background-color: #fceff6;
+    border: 1px solid #f3d6e7;
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-cards article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(100, 150, 190, 0.12);
+}
+
+.dashboard-cards article h3 {
+    font-size: 0.95rem;
+    color: #607d99;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-cards article p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #c34d8d;
+}
+
+/* ===== Tabel ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid #e1e7ee;
+}
+
+thead {
+    background-color: #78a9c7;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5f9fc;
+}
+
+tbody tr:hover {
+    background-color: #fceff6;
+}
+
+/* ===== Button dalam Tabel ===== */
+td button {
+    padding: 0.35rem 0.7rem;
+    margin-right: 0.35rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+/* Edit */
+td button:first-of-type {
+    background-color: #f0b6cf;
+    color: #75445d;
+}
+
+/* Hapus */
+td button:last-of-type {
+    background-color: #e9a5a5;
+    color: #fff;
+}
+
+/* ===== Form ===== */
+form p {
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    color: #555;
+}
+
+form input,
+form select {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #cbd8e4;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #78a9c7;
+}
+
+/* ===== Submit Button ===== */
+form button[type="submit"] {
+    background-color: #78a9c7;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: #6595b3;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #7a8794;
+    font-size: 0.9rem;
+}
+
+/* ===== Tabel Responsif ===== */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* ===== Hamburger Menu ===== */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    font-size: 1.6rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ===== Responsive ===== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    header {
+        position: relative;
+    }
+
+    .nav-toggle-label {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+        width: 100%;
+        order: 3;
+        margin-top: 1rem;
+    }
+
+    .nav-toggle:checked ~ nav {
+        display: block;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    form input,
+    form select {
+        max-width: 100%;
+    }
+}
