@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistem Pembelian Buku Mini | Beranda</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>TOKU-Mini</h1>
+        <button type="button" id="nav-toggle-btn" class="nav-toggle-label" aria-label="Menu">&#9776;</button>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="list.html">Daftar Buku</a></li>
+                <li><a href="tambah.html">Tambah Buku</a></li>
+                <li><a href="../anggota/list.html">Daftar Transaksi</a></li>
+                <li><a href="../anggota/tambah.html">Tambah Transaksi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tambah Produk Buku</h2>
+            <form id="form-tambah">
+                <p>
+                    <label for="kode_buku">Kode Buku</label><br>
+                    <input type="text" id="kode_buku" name="kode_buku">
+                </p>
+                <p>
+                    <label for="judul">Judul Buku</label><br>
+                    <input type="text" id="judul" name="judul">
+                </p>
+                <p>
+                    <label for="pengarang">Pengarang</label><br>
+                    <input type="text" id="pengarang" name="pengarang">
+                </p>
+                <p>
+                    <label for="tahun">Tahun Terbit</label><br>
+                    <input type="number" id="tahun" name="tahun">
+                </p>
+                <p>
+                    <label for="harga">Harga (Rp)</label><br>
+                    <input type="number" id="harga" name="harga">
+                </p>
+                <p>
+                    <label for="stok">Jumlah Stok</label><br>
+                    <input type="number" id="stok" name="stok">
+                </p>
+                <p>
+                    <label for="kategori">Kategori</label><br>
+                    <select id="kategori" name="kategori">
+                        <option value="fiksi">Novel</option>
+                        <option value="non-fiksi">Pelajaran</option>
+                        <option value="referensi">Cerita Fiksi</option>
+                    </select>
+                </p>
+                <p>
+                    <button type="submit">Simpan Buku</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TOKU-Mini &mdash; Jobsheet 5</p>
+    </footer>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
