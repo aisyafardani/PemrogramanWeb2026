@@ -9,17 +9,18 @@ function initNavToggle() {
     });
 }
 
-// ===== Konfirmasi hapus (front-end only, belum ke server) =====
+// ===== Konfirmasi hapus (Event Delegation) =====
 function initHapusConfirm() {
-    document.querySelectorAll(".btn-hapus").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            const row = btn.closest("tr");
+    document.addEventListener("click", function (e) {
+        // Cek apakah elemen yang diklik memiliki class 'btn-hapus'
+        if (e.target && e.target.classList.contains("btn-hapus")) {
+            const row = e.target.closest("tr");
             const nama = row ? row.querySelector("td")?.textContent : "data ini";
             const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
             if (yakin && row) {
                 row.remove();
             }
-        });
+        }
     });
 }
 
