@@ -1,0 +1,12 @@
+[
+  { "kode_buku": "BK-001", "judul": "Laskar Pelangi", "kategori": "Novel", "harga": 85000, "stok": 15 },
+  { "kode_buku": "BK-002", "judul": "Bumi Manusia", "kategori": "Novel", "harga": 135000, "stok": 20 },
+  { "kode_buku": "BK-003", "judul": "Cantik Itu Luka", "kategori": "Novel", "harga": 125000, "stok": 12 },
+  { "kode_buku": "BK-004", "judul": "Home Sweet Loan", "kategori": "Novel", "harga": 95000, "stok": 18 },
+  { "kode_buku": "BK-005", "judul": "Fiksi Metropop: Resep Cherry", "kategori": "Novel", "harga": 88000, "stok": 10 },
+  { "kode_buku": "BK-006", "judul": "Sagaras (Bumi Series)", "kategori": "Novel", "harga": 99000, "stok": 25 },
+  { "kode_buku": "BK-007", "judul": "Filosofi Teras", "kategori": "Non-Fiksi / Self-Improvement", "harga": 98000, "stok": 14 },
+  { "kode_buku": "BK-008", "judul": "Malioboro at Midnight", "kategori": "Novel", "harga": 99000, "stok": 30 },
+  { "kode_buku": "BK-009", "judul": "Segala Yang Diisap Langit", "kategori": "Novel", "harga": 92000, "stok": 8 },
+  { "kode_buku": "BK-010", "judul": "Midnight Library (Terjemahan)", "kategori": "Novel", "harga": 105000, "stok": 22 }
+]
