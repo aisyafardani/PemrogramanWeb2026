@@ -1,7 +1,0 @@
-[
-  { "no_nota": "NOTA-001", "nama_pembeli": "Aisya Noor Fardani", "judul_buku": "Malioboro At Midnight", "jumlah_buku": 1, "total_transaksi": 90000 },
-  { "no_nota": "NOTA-002", "nama_pembeli": "Marcello Artasda", "judul_buku": "Bumi Manusia", "jumlah_buku": 1, "total_transaksi": 110000 },
-  { "no_nota": "NOTA-003", "nama_pembeli": "Aulia Bilqisty", "judul_buku": "Laskar Pelangi", "jumlah_buku": 1, "total_transaksi": 76000 },
-  { "no_nota": "NOTA-004", "nama_pembeli": "Budi Septian", "judul_buku": "Filosofi Teras", "jumlah_buku": 2, "total_transaksi": 225000 },
-  { "no_nota": "NOTA-005", "nama_pembeli": "Erinazzahra Kamila", "judul_buku": "Negeri 5 Menara", "jumlah_buku": 3, "total_transaksi": 275000 }
-]
