@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistem Pembelian Buku Mini | Beranda</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>TOKU-Mini</h1>
-        <button type="button" id="nav-toggle-btn" class="nav-toggle-label" aria-label="Menu">&#9776;</button>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Beranda</a></li>
-                <li><a href="../buku/list.html">Daftar Buku</a></li>
-                <li><a href="../buku/tambah.html">Tambah Buku</a></li>
-                <li><a href="list.html">Daftar Transaksi</a></li>
-                <li><a href="tambah.html">Tambah Transaksi</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php
+$page_title = "Daftar Anggota";
+include __DIR__ . '/../includes/header.php';
 
-    <main>
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']);
+$daftarAnggota = $_SESSION['anggota'] ?? [];
+?>
         <section>
             <h2>Daftar Trasaksi Pembelian</h2>
             <div class="search-box">
