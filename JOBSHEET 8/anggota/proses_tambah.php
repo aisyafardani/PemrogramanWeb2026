@@ -1,5 +1,6 @@
 <?php
 session_start();
+require __DIR__ . '/../includes/koneksi.php';
 
 $noNota = trim($_POST['no_nota'] ?? '');
 $nama = trim($_POST['nama'] ?? '');
@@ -26,23 +27,29 @@ if (!empty($errors)) {
     exit;
 }
 
-if (!isset($_SESSION['anggota'])) {
-    $_SESSION['anggota'] = [];
-}
-
 if ($noNota === '') {
-    $nextId = count($_SESSION['anggota']) + 1;
+    $stmtCount = $pdo->query("SELECT COUNT(*) FROM anggota");
+    $nextId = $stmtCount->fetchColumn() + 1;
     $noNota = 'NOTA-' . str_pad($nextId, 3, '0', STR_PAD_LEFT);
 }
 
-$_SESSION['anggota'][] = [
+$totalTransaksi = (int) $stok * (int) $harga;
+
+// Simpan ke PostgreSQL menggunakan Prepared Statement
+$stmt = $pdo->prepare(
+    "INSERT INTO anggota (no_nota, nama_pembeli, judul_buku, penerbit, jumlah_buku, total_transaksi)
+     VALUES (:no_nota, :nama_pembeli, :judul_buku, :penerbit, :jumlah_buku, :total_transaksi)
+     RETURNING id"
+);
+
+$stmt->execute([
     'no_nota'         => $noNota,
     'nama_pembeli'    => $nama,
     'judul_buku'      => $judulBuku,
     'penerbit'        => $penerbit,
     'jumlah_buku'     => (int) $stok,
-    'total_transaksi' => (int) $stok * (int) $harga, // atau dikalkulasikan sesuai harga per buku
-];
+    'total_transaksi' => $totalTransaksi,
+]);
 
 $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Transaksi berhasil ditambahkan.'];
 header('Location: list.php');

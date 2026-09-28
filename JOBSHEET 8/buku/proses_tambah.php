@@ -1,5 +1,6 @@
 <?php
 session_start();
+require __DIR__ . '/../includes/koneksi.php';
 
 $judul = trim($_POST['judul'] ?? '');
 $pengarang = trim($_POST['pengarang'] ?? '');
@@ -36,14 +37,18 @@ if (!empty($errors)) {
     exit;
 }
 
-if (!isset($_SESSION['buku'])) {
-    $_SESSION['buku'] = [];
-}
-
-$nextId   = count($_SESSION['buku']) + 1;
+$stmtCount = $pdo->query("SELECT COUNT(*) FROM buku");
+$nextId = $stmtCount->fetchColumn() + 1;
 $kodeBuku = 'BK-' . str_pad($nextId, 3, '0', STR_PAD_LEFT);
 
-$_SESSION['buku'][] = [
+// Simpan ke PostgreSQL menggunakan Prepared Statement
+$stmt = $pdo->prepare(
+    "INSERT INTO buku (kode, judul, pengarang, tahun, kategori, harga, stok)
+     VALUES (:kode, :judul, :pengarang, :tahun, :kategori, :harga, :stok)
+     RETURNING id"
+);
+
+$stmt->execute([
     'kode'      => $kodeBuku,
     'judul'     => $judul,
     'pengarang' => $pengarang,
@@ -51,7 +56,7 @@ $_SESSION['buku'][] = [
     'harga'     => (int) $harga,
     'stok'      => (int) $stok,
     'kategori'  => $kategori,
-];
+]);
 
 $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Buku berhasil ditambahkan.'];
 header('Location: list.php');
