@@ -31,6 +31,10 @@ unset($_SESSION['flash']);
                     <input type="text" id="penerbit" name="penerbit">
                 </p>
                 <p>
+                    <label for="harga">Harga Per Buku (Rp)</label><br>
+                    <input type="number" id="harga" name="harga">
+                </p>
+                <p>
                     <label for="stok">Jumlah Beli</label><br>
                     <input type="number" id="stok" name="stok">
                 </p>

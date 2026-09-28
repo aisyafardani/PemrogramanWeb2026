@@ -35,17 +35,16 @@ $daftarAnggota = $_SESSION['anggota'] ?? [];
         
                 <?php if (empty($daftarAnggota)): ?>
                     <tr>
-                        <td colspan="5">Belum ada data transaksi. Silakan tambah lewat menu "Tambah Transaksi".</td>
+                        <td colspan="6">Belum ada data transaksi. Silakan tambah lewat menu "Tambah Transaksi".</td>
                     </tr>
                     <?php else: ?>
                         <?php foreach ($daftarAnggota as $anggota): ?>
                         <tr>
                             <td><?php echo $anggota['no_nota']; ?></td>
-                            <td><?php echo $anggota['nama']; ?></td>
+                            <td><?php echo $anggota['nama_pembeli']; ?></td>
                             <td><?php echo $anggota['judul_buku']; ?></td>
-                            <td><?php echo $anggota['penerbit']; ?></td>
-                            <td><?php echo $anggota['jumlah']; ?></td>
-                            <td><?php echo $anggota['total']; ?></td>
+                            <td><?php echo $anggota['jumlah_buku']; ?></td>
+                            <td><?php echo $anggota['total_transaksi']; ?></td>
                             <td>
                                 <button type="button">Edit</button>
                                 <button type="button" class="btn-hapus">Hapus</button>
