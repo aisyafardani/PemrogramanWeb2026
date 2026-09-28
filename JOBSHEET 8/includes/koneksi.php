@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$port = "5432";
+$port = "5433";
 $db   = "toku_mini";
 $user = "postgres";
 $pass = "ais123";
