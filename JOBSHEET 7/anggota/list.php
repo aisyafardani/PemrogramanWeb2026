@@ -8,6 +8,11 @@ $daftarAnggota = $_SESSION['anggota'] ?? [];
 ?>
         <section>
             <h2>Daftar Trasaksi Pembelian</h2>
+
+            <?php if ($flash): ?>
+                <p class="flash flash-<?php echo $flash['type']; ?>"><?php echo $flash['pesan']; ?></p>
+            <?php endif; ?>
+
             <div class="search-box">
                 <label for="search-input">Cari Nama Pembeli</label>
                 <input type="text" id="search-input" placeholder="Ketik nama anggota...">
@@ -27,17 +32,29 @@ $daftarAnggota = $_SESSION['anggota'] ?? [];
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Baris akan diisi dinamis oleh assets/js/anggota.js via fetch('../data/anggota.json') -->
+        
+                <?php if (empty($daftarAnggota)): ?>
+                    <tr>
+                        <td colspan="5">Belum ada data transaksi. Silakan tambah lewat menu "Tambah Transaksi".</td>
+                    </tr>
+                    <?php else: ?>
+                        <?php foreach ($daftarAnggota as $anggota): ?>
+                        <tr>
+                            <td><?php echo $anggota['no_nota']; ?></td>
+                            <td><?php echo $anggota['nama']; ?></td>
+                            <td><?php echo $anggota['judul_buku']; ?></td>
+                            <td><?php echo $anggota['penerbit']; ?></td>
+                            <td><?php echo $anggota['jumlah']; ?></td>
+                            <td><?php echo $anggota['total']; ?></td>
+                            <td>
+                                <button type="button">Edit</button>
+                                <button type="button" class="btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
             </div>
         </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 TOKU-Mini &mdash; Jobsheet 6</p>
-    </footer>
-    <script src="../assets/js/app.js"></script>
-    <script src="../assets/js/anggota.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
