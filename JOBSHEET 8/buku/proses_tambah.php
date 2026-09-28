@@ -2,6 +2,7 @@
 session_start();
 require __DIR__ . '/../includes/koneksi.php';
 
+$kodeBuku  = trim($_POST['kode_buku'] ?? '');
 $judul = trim($_POST['judul'] ?? '');
 $pengarang = trim($_POST['pengarang'] ?? '');
 $tahun     = $_POST['tahun'] ?? '';
@@ -37,11 +38,16 @@ if (!empty($errors)) {
     exit;
 }
 
+if ($kodeBuku === '') {
+    $stmtCount = $pdo->query("SELECT COUNT(*) FROM buku");
+    $nextId = $stmtCount->fetchColumn() + 1;
+    $kodeBuku = 'BK-' . str_pad($nextId, 3, '0', STR_PAD_LEFT);
+}
+
 $stmtCount = $pdo->query("SELECT COUNT(*) FROM buku");
 $nextId = $stmtCount->fetchColumn() + 1;
 $kodeBuku = 'BK-' . str_pad($nextId, 3, '0', STR_PAD_LEFT);
 
-// Simpan ke PostgreSQL menggunakan Prepared Statement
 $stmt = $pdo->prepare(
     "INSERT INTO buku (kode, judul, pengarang, tahun, kategori, harga, stok)
      VALUES (:kode, :judul, :pengarang, :tahun, :kategori, :harga, :stok)
