@@ -8,6 +8,12 @@ unset($_SESSION['flash']);
 
         <section>
             <h2>Tambah Transaksi Pembelian</h2>
+
+            <?php if ($flash): ?>
+                <p class="flash flash-<?php echo $flash['type']; ?>"><?php echo $flash['pesan']; ?></p>
+            <?php endif; ?>
+
+            <form id="form-tambah" method="post" action="proses_tambah.php">
                 <p>
                     <label for="no_nota">No. Nota / Transaksi</label><br>
                     <input type="text" id="no_nota" name="no_nota">
@@ -33,11 +39,4 @@ unset($_SESSION['flash']);
                 </p>
             </form>
         </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 6</p>
-    </footer>
-    <script src="../assets/js/app.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
