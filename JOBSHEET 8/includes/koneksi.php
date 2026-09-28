@@ -1,9 +1,9 @@
 <?php
 $host = "localhost";
 $port = "5432";
-$db   = "simpus_mini";
+$db   = "toku_mini";
 $user = "postgres";
-$pass = "postgres";
+$pass = "Aisya123";
 
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
