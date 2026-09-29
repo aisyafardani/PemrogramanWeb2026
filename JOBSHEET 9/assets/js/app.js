@@ -11,7 +11,7 @@ function initNavToggle() {
 
 // ===== Konfirmasi hapus (Event Delegation) =====
 function initHapusConfirm() {
-    document.addEventListener("sumbit", function (e) {
+    document.addEventListener("submit", function (e) {
         // Cek apakah elemen yang diklik memiliki class 'btn-hapus'
         const form = e.target;
         if (!form.classList.contains("form-hapus")) return;
