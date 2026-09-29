@@ -52,8 +52,11 @@ $daftarBuku = $pdo->query("SELECT * FROM buku ORDER BY id DESC")->fetchAll(PDO::
                             <td>Rp <?php echo number_format($buku['harga'] ?? 0, 0, ',', '.'); ?></td>
                             <td><?php echo htmlspecialchars($buku['stok'] ?? 0); ?></td>
                             <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
+                                <a href="edit.php?id=<?php echo $buku['id']; ?>" class="btn-edit">Edit</a>
+                                <form class="form-hapus" method="post" action="hapus.php">
+                                    <input type="hidden" name="id" value="<?php echo $buku['id']; ?>">
+                                    <button type="submit" class="btn-hapus">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                         <?php endforeach; ?>

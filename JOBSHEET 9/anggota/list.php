@@ -49,8 +49,11 @@ $daftarAnggota = $pdo->query("SELECT * FROM anggota ORDER BY id DESC")->fetchAll
                             <td><?php echo $anggota['jumlah_buku']; ?></td>
                             <td><?php echo $anggota['total_transaksi']; ?></td>
                             <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
+                                 <a href="edit.php?id=<?php echo $anggota['id']; ?>" class="btn-edit">Edit</a>
+                                <form class="form-hapus" method="post" action="hapus.php">
+                                    <input type="hidden" name="id" value="<?php echo $anggota['id']; ?>">
+                                    <button type="submit" class="btn-hapus">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                         <?php endforeach; ?>
