@@ -20,7 +20,7 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
 </head>
 <body>
     <header>
-        <h1>SIMPUS-Mini</h1>
+        <h1>TOKU-Mini</h1>
         <button type="button" id="nav-toggle-btn" class="nav-toggle-label" aria-label="Menu">&#9776;</button>
         <nav>
             <ul>
