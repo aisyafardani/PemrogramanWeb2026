@@ -1,38 +1,24 @@
-# Jobsheet 8 — Koneksi PostgreSQL
+# Jobsheet 9 — CRUD Penuh
 
-Sub-CPMK: Menghubungkan aplikasi dengan basis data PostgreSQL.
+Sub-CPMK: Membangun fitur CRUD pada proyek.
 
-## Perubahan dari Jobsheet 7
-- Tambah `sql/01_buku_anggota.sql` — DDL tabel `buku` dan `anggota` (ERD dasar).
-- Tambah `includes/koneksi.php` — koneksi `PDO` driver `pgsql`.
-- `buku/proses_tambah.php` & `anggota/proses_tambah.php`: `$_SESSION['buku'][] = ...` (Jobsheet 7) diganti `INSERT ... RETURNING id` via prepared statement.
-- `buku/list.php` & `anggota/list.php`: sumber data diganti dari `$_SESSION` menjadi `SELECT * FROM ... ORDER BY id DESC`.
-- `index.php`: kartu statistik Total Buku/Anggota kini `SELECT COUNT(*)` dari database (bukan dummy/session lagi).
-
-## Persiapan database
-1. Pastikan PostgreSQL berjalan dan ekstensi PHP `pdo_pgsql` aktif (`php -m | grep pgsql`; bila belum ada, aktifkan `extension=pdo_pgsql` di `php.ini` lalu restart server).
-2. Buat database:
-   ```bash
-   createdb simpus_mini
-   ```
-3. Jalankan skema:
-   ```bash
-   psql -d simpus_mini -f sql/01_buku_anggota.sql
-   ```
-4. Sesuaikan kredensial di `includes/koneksi.php` (`$user`, `$pass`) dengan environment lokal.
+## Perubahan dari Jobsheet 8
+- Tambah `buku/edit.php` + `buku/proses_edit.php`, `anggota/edit.php` + `anggota/proses_edit.php` — melengkapi Create+Read (Jobsheet 8) dengan **Update**.
+- Tambah `buku/hapus.php`, `anggota/hapus.php` — **Delete**, hanya menerima `POST` (bukan GET) agar tidak terpicu tidak sengaja lewat link/crawler.
+- Tombol Hapus di `list.php` sekarang berupa `<form class="form-hapus" method="post">` sungguhan (bukan lagi tombol `<button>` polos) — `app.js` (`initHapusConfirm`) diubah untuk konfirmasi di event `submit` (bisa `preventDefault()`), bukan `click`.
+- `buku/list.php` & `anggota/list.php`: tambah **pagination** (`LIMIT`/`OFFSET`, 5 baris/halaman) dan **pencarian server-side** (`WHERE judul/nama ILIKE :kw`) — form GET, menggantikan kolom cari client-side murni dari Jobsheet 5/6.
 
 ## Cara menjalankan
 **Opsi 1 — PHP built-in server**:
 ```bash
 php -S localhost:8000
 ```
-Buka `http://localhost:8000/index.php`.
+Buka `http://localhost:8000/index.php`, uji siklus lengkap: tambah → tampil → ubah (Edit) → tampil berubah → hapus → hilang dari list.
 
-**Opsi 2 — Laragon (Apache)**: lewat virtual host langsung ke folder `jobsheet-08/` (mis. `http://jobsheet08.test/`), atau bersarang di bawah domain proyek (mis. `http://dp2026.test/kode-praktikum/jobsheet-08/`) — path CSS/JS/link sudah relatif otomatis (lihat `includes/header.php`), jadi keduanya jalan.
+**Opsi 2 — Laragon (Apache)**: lewat virtual host langsung ke folder `jobsheet-09/` (mis. `http://jobsheet09.test/`), atau bersarang di bawah domain proyek (mis. `http://dp2026.test/kode-praktikum/jobsheet-09/`) — path CSS/JS/link sudah relatif otomatis (lihat `includes/header.php`), jadi keduanya jalan.
 
 ## Catatan
-- Data yang diinput sekarang **persisten** — coba tutup-buka browser, data tetap ada (beda dengan Jobsheet 7 yang hilang saat sesi berakhir).
-- Query memakai prepared statement (`:nama_parameter`) — bukan concatenation string — sebagai fondasi keamanan yang diperdalam di Jobsheet 11.
-- Kolom `id` sudah ikut ter-fetch dari `SELECT *` meski belum dipakai di tampilan — akan digunakan untuk link Edit/Hapus mulai Jobsheet 9.
+- Kolom pencarian (`#search-input`) di halaman ini melayani dua peran: filter instan client-side (JS, dari Jobsheet 5) untuk baris yang sedang tampil di halaman saat ini, dan pencarian penuh lintas-halaman lewat tombol "Cari" (server-side).
+- Nilai `q` dari pencarian belum di-escape saat ditampilkan kembali ke `value` input — ini **sengaja belum diperbaiki** di sini; audit dan perbaikan XSS dilakukan menyeluruh di Jobsheet 11.
 
-Link Laporan Praktikum: https://docs.google.com/document/d/1wNSXKOw_R4lYwibH0BJ-zu8bnZLoo4R-/edit
+Link Laporan Praktikum: https://docs.google.com/document/d/1b77v6xc-pkqiJyQIYieYlDw8D1SJwYkX/edit
