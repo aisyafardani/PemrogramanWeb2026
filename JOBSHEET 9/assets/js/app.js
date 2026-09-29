@@ -11,14 +11,14 @@ function initNavToggle() {
 
 // ===== Konfirmasi hapus (Event Delegation) =====
 function initHapusConfirm() {
-    document.addEventListener("click", function (e) {
+    document.addEventListener("sumbit", function (e) {
         // Cek apakah elemen yang diklik memiliki class 'btn-hapus'
         const form = e.target;
         if (!form.classList.contains("form-hapus")) return;
 
         const row = form.closest("tr");
         const nama = row ? row.querySelector("td")?.textContent : "data ini";
-        const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
+        const yakin = confirm("Yakin ingin menghapus \"" + nama.trim() + "\"?");
         if (!yakin) {
             e.preventDefault();
         }
