@@ -13,13 +13,14 @@ function initNavToggle() {
 function initHapusConfirm() {
     document.addEventListener("click", function (e) {
         // Cek apakah elemen yang diklik memiliki class 'btn-hapus'
-        if (e.target && e.target.classList.contains("btn-hapus")) {
-            const row = e.target.closest("tr");
-            const nama = row ? row.querySelector("td")?.textContent : "data ini";
-            const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
-            if (yakin && row) {
-                row.remove();
-            }
+        const form = e.target;
+        if (!form.classList.contains("form-hapus")) return;
+
+        const row = form.closest("tr");
+        const nama = row ? row.querySelector("td")?.textContent : "data ini";
+        const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
+        if (!yakin) {
+            e.preventDefault();
         }
     });
 }
