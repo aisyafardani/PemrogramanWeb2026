@@ -20,7 +20,7 @@ function initHapusConfirm() {
         const nama = row ? row.querySelector("td")?.textContent : "data ini";
         const yakin = confirm("Yakin ingin menghapus \"" + nama.trim() + "\"?");
         if (!yakin) {
-            e.preventDefault();
+            e.preventDefault(); // Membatalkan proses pengiriman form jika Cancel
         }
     });
 }
