@@ -374,3 +374,22 @@ td form.form-hapus {
     color: #fff;
     cursor: pointer;
 }
+
+/* ===== Style Tambahan untuk Auth Status ===== */
+.auth-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.auth-status a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.auth-status a:hover {
+    color: #ffe6f2;
+}

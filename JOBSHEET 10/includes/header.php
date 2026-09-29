@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$sudahLogin = isset($_SESSION['user_id']);
 
 // Prefix relatif ke root proyek ini (bukan root domain) — supaya
 // /assets, /index.php, dst tetap benar walau proyek diakses lewat
@@ -31,6 +34,14 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
                 <li><a href="<?php echo $base; ?>anggota/tambah.php">Tambah Transaksi</a></li>
             </ul>
         </nav>
+        <div class="auth-status">
+            <?php if ($sudahLogin): ?>
+                <span><?php echo $_SESSION['nama']; ?></span>
+                <a href="<?php echo $base; ?>auth/logout.php">Logout</a>
+            <?php else: ?>
+                <a href="<?php echo $base; ?>auth/login.php">Login</a>
+            <?php endif; ?>
+        </div>
     </header>
 
     <main>
