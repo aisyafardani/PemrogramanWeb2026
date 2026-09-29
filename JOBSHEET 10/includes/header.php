@@ -36,10 +36,12 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
         </nav>
         <div class="auth-status">
             <?php if ($sudahLogin): ?>
-                <span><?php echo $_SESSION['nama']; ?></span>
-                <a href="<?php echo $base; ?>auth/logout.php">Logout</a>
+                <a href="<?php echo $base; ?>auth/logout.php" class="btn-logout">Logout</a>
+                <div class="user-badge">
+                    <span class="user-name"><?php echo htmlspecialchars($_SESSION['nama']); ?></span>
+                </div>
             <?php else: ?>
-                <a href="<?php echo $base; ?>auth/login.php">Login</a>
+                <a href="<?php echo $base; ?>auth/login.php" class="btn-login">Login</a>
             <?php endif; ?>
         </div>
     </header>

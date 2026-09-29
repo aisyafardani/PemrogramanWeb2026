@@ -378,16 +378,52 @@ td form.form-hapus {
 /* ===== Style Tambahan untuk Auth Status ===== */
 .auth-status {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: #fff;
-    font-size: 0.95rem;
+    flex-direction: column; /* Membuat susunan Logout di atas & Nama di bawah */
+    align-items: flex-end;  /* Rata kanan */
+    gap: 0.25rem;
 }
 
-.auth-status a {
-    color: #fff;
-    text-decoration: underline;
+.auth-status .btn-login {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: #fff;
+    color: #c94f91; 
+    font-size: 0.85rem;
     font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.auth-status .btn-login:hover {
+    background-color: #f8eaf2;
+    text-decoration: none;
+}
+
+.auth-status .btn-logout {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background-color: #fff;
+    color: #c94f91;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.auth-status .btn-logout:hover {
+    background-color: #f8eaf2;
+    text-decoration: none;
+}
+
+.auth-status .user-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 .auth-status a:hover {
