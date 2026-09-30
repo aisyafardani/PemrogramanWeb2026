@@ -28,9 +28,10 @@ if (!empty($errors)) {
 }
 
 if ($noNota === '') {
-    $stmtCount = $pdo->query("SELECT COUNT(*) FROM anggota");
-    $nextId = $stmtCount->fetchColumn() + 1;
-    $noNota = 'NOTA-' . str_pad($nextId, 3, '0', STR_PAD_LEFT);
+    $stmtLast = $pdo->query("SELECT MAX(id) FROM anggota");
+    $lastId = $stmtLast->fetchColumn();
+    $nextId = $lastId ? $lastId + 1 : 1;
+    $no_nota = 'NOTA-' . str_pad($nextId, 3, '0', STR_PAD_LEFT);
 }
 
 $totalTransaksi = (int) $stok * (int) $harga;

@@ -96,8 +96,9 @@ section p {
 /* ===== Kartu Statistik ===== */
 .dashboard-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 .dashboard-cards article {
@@ -114,16 +115,17 @@ section p {
     box-shadow: 0 4px 10px rgba(100, 150, 190, 0.12);
 }
 
-.dashboard-cards article h3 {
-    font-size: 0.95rem;
-    color: #607d99;
+.dashboard-cards h3 {
+    font-size: 0.9rem;
+    color: #666;
     margin-bottom: 0.5rem;
 }
 
-.dashboard-cards article p {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #c34d8d;
+.dashboard-cards p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #c94f91;
+    margin: 0;
 }
 
 /* ===== Search Box ===== */
