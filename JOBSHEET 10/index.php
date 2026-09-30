@@ -52,9 +52,9 @@ $penjualanPerKategori = $pdo->query("
             <?php if (empty($penjualanPerKategori)): ?>
                 <p>Belum ada transaksi penjualan.</p>
             <?php else: ?>
-                <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+                <table class="custom-table">
                     <thead>
-                        <tr style="background-color: #f2f2f2; text-align: left;">
+                        <tr>
                             <th>Kategori Buku</th>
                             <th>Jumlah Terjual (Eksemplar)</th>
                             <th>Total Transaksi</th>

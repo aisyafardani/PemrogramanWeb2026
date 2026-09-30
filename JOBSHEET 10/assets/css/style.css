@@ -431,3 +431,32 @@ td form.form-hapus {
 .auth-status a:hover {
     color: #ffe6f2;
 }
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.custom-table th {
+    background-color: #c94f91; /* Warna magenta tema utama */
+    color: #ffffff;             /* Warna teks putih agar jelas */
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.custom-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f3d6e7;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #fceff6; 
+}
