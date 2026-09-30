@@ -1,9 +1,8 @@
 # Gunakan image resmi Nginx yang sudah dilengkapi dengan PHP-FPM
 FROM richarvey/nginx-php-fpm:latest
 
-RUN apt-get update && apt-get install -y \
-    libpq-dev pdo pgsql \
-    && docker-php-ext-install pdo_pgsql
+RUN apk add --no-cache postgresql-dev \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
 
 # Salin semua file proyek PHP kamu ke folder web server Nginx
 COPY . /var/www/html
