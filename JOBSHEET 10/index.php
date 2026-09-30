@@ -52,24 +52,15 @@ $penjualanPerKategori = $pdo->query("
             <?php if (empty($penjualanPerKategori)): ?>
                 <p>Belum ada transaksi penjualan.</p>
             <?php else: ?>
-                <table class="custom-table">
-                    <thead>
-                        <tr>
-                            <th>Kategori Buku</th>
-                            <th>Jumlah Terjual (Eksemplar)</th>
-                            <th>Total Transaksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($penjualanPerKategori as $row): ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($row['kategori']); ?></td>
-                                <td><?php echo $row['total_buku_terjual']; ?> Buku</td>
-                                <td><?php echo $row['total_transaksi']; ?> Kali</td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                <div class="kategori-cards">
+                    <?php foreach ($penjualanPerKategori as $row): ?>
+                        <article class="card-kategori">
+                            <h3><?php echo htmlspecialchars(ucwords($row['kategori'])); ?></h3>
+                            <p class="jumlah-terjual"><?php echo $row['total_buku_terjual']; ?> Buku Terjual</p>
+                            <span class="total-transaksi"><?php echo $row['total_transaksi']; ?>x Transaksi</span>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
             <?php endif; ?>
         </section>
 

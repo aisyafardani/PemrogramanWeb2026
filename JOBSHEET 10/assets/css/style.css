@@ -212,6 +212,21 @@ form label {
     color: #555;
 }
 
+.form-hapus {
+    display: inline-block;
+    margin: 0;
+}
+
+table td:last-child {
+    white-space: nowrap;
+}
+
+table td .btn-edit,
+table td .btn-hapus {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 form input,
 form select {
     width: 100%;
@@ -459,4 +474,46 @@ td form.form-hapus {
 
 .custom-table tbody tr:hover {
     background-color: #fceff6; 
+}
+
+/* Styling Kartu Kategori Buku */
+.kategori-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.card-kategori {
+    background-color: #fceff6;
+    border: 1px solid #f3d6e7;
+    border-radius: 10px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-kategori:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(100, 150, 190, 0.12);
+}
+
+.card-kategori h3 {
+    font-size: 1.1rem;
+    color: #c94f91; /* Warna magenta tema utama */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.card-kategori .jumlah-terjual {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0.3rem 0;
+}
+
+.card-kategori .total-transaksi {
+    font-size: 0.85rem;
+    color: #777;
+    display: block;
 }
