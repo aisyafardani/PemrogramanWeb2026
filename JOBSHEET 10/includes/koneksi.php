@@ -1,6 +1,6 @@
 <?php
-$host = getenv('DB_HOST') ?: 'localhost';
-$port = getenv('DB_PORT') ?: '5433';
+$host = getenv('DB_HOST') ?: 'db';
+$port = getenv('DB_PORT') ?: '5432';
 $db   = getenv('DB_NAME') ?: 'toku_mini';
 $user = getenv('DB_USER') ?: 'postgres';
 $pass = getenv('DB_PASSWORD') ?: 'ais123';
