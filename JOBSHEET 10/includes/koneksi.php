@@ -1,9 +1,9 @@
 <?php
-$host = "localhost";
-$port = "5433";
-$db   = "toku_mini";
-$user = "postgres";
-$pass = "ais123";
+$host = getenv('DB_HOST') ?: 'localhost';
+$port = getenv('DB_PORT') ?: '5433';
+$db   = getenv('DB_NAME') ?: 'toku_mini';
+$user = getenv('DB_USER') ?: 'postgres';
+$pass = getenv('DB_PASSWORD') ?: 'ais123';
 
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
