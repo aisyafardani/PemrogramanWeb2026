@@ -2,6 +2,8 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once __DIR__ . '/helpers.php';
+require_once __DIR__ . '/csrf.php';
 $sudahLogin = isset($_SESSION['user_id']);
 
 // Prefix relatif ke root proyek ini (bukan root domain) — supaya
@@ -38,8 +40,8 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
             <?php if ($sudahLogin): ?>
                 <a href="<?php echo $base; ?>auth/logout.php" class="btn-logout">Logout</a>
                 <div class="user-badge">
-                    <span class="user-name"><?php echo htmlspecialchars($_SESSION['nama']); ?></span>
-                </div>
+                <span class="user-name"><?php echo e($_SESSION['nama']); ?></span>
+            </div>
             <?php else: ?>
                 <a href="<?php echo $base; ?>auth/login.php" class="btn-login">Login</a>
             <?php endif; ?>

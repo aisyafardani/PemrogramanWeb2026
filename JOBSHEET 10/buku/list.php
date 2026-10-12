@@ -41,7 +41,7 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                 <form method="get" action="list.php">
                     <span>
                         <label for="search-input">Cari Judul Buku</label><br>
-                        <input type="text" id="search-input" name="q" value="<?php echo $keyword; ?>" placeholder="Ketik judul buku...">
+                        <input type="text" id="search-input" name="q" value="<?php echo e($keyword); ?>" placeholder="Ketik judul buku...">
                     </span>
                     <button type="submit">Cari</button>
                 </form>
@@ -70,17 +70,20 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                     <?php else: ?>
                         <?php foreach ($daftarBuku as $buku): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($buku['kode'] ?? '-'); ?></td>
-                            <td><?php echo htmlspecialchars($buku['judul'] ?? '-'); ?></td>
-                            <td><?php echo htmlspecialchars($buku['pengarang'] ?? '-'); ?></td>
-                            <td><?php echo htmlspecialchars($buku['tahun'] ?? '-'); ?></td>
-                            <td><?php echo htmlspecialchars($buku['kategori'] ?? '-'); ?></td>
+                            <td><?php echo e($buku['kode'] ?? '-'); ?></td>
+                            <td><?php echo e($buku['judul'] ?? '-'); ?></td>
+                            <td><?php echo e($buku['pengarang'] ?? '-'); ?></td>
+                            <td><?php echo $buku['tahun'] ?? '-'; ?></td>
+                            <td><?php echo e($buku['kategori'] ?? '-'); ?></td>
                             <td>Rp <?php echo number_format($buku['harga'] ?? 0, 0, ',', '.'); ?></td>
-                            <td><?php echo htmlspecialchars($buku['stok'] ?? 0); ?></td>
+                            <td><?php echo $buku['stok'] ?? 0; ?></td>
                             <td>
                                 <a href="edit.php?id=<?php echo $buku['id']; ?>" class="btn-edit">Edit</a>
                                 <form class="form-hapus" method="post" action="hapus.php">
                                     <input type="hidden" name="id" value="<?php echo $buku['id']; ?>">
+                                    
+                                    <?php echo csrf_field(); ?>
+                                    
                                     <button type="submit" class="btn-hapus">Hapus</button>
                                 </form>
                             </td>
