@@ -30,51 +30,52 @@ if (!$buku) {
             <?php endif; ?>
 
             <form id="form-tambah" method="post" action="proses_edit.php">
+                <?php echo csrf_field(); ?>    
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($buku['id']); ?>">
-                <p>
-                    <label for="kode_buku">Kode Buku</label><br>
-                    <input type="text" id="kode_buku" name="kode_buku" value="<?php echo htmlspecialchars($buku['kode'] ?? ''); ?>">
-                </p>
-                <p>
-                    <label for="judul">Judul Buku</label><br>
-                    <input type="text" id="judul" name="judul" value="<?php echo htmlspecialchars($buku['judul'] ?? ''); ?>" required>
-                </p>
-                <p>
-                    <label for="pengarang">Pengarang</label><br>
-                    <input type="text" id="pengarang" name="pengarang" value="<?php echo htmlspecialchars($buku['pengarang'] ?? ''); ?>" required>
-                </p>
-                <p>
-                    <label for="tahun">Tahun Terbit</label><br>
-                    <input type="number" id="tahun" name="tahun" min="1900" max="<?php echo date('Y'); ?>" value="<?php echo htmlspecialchars($buku['tahun'] ?? ''); ?>" required>
-                </p>
-                <p>
-                    <label for="harga">Harga (Rp)</label><br>
-                    <input type="number" id="harga" name="harga" min="0" value="<?php echo htmlspecialchars($buku['harga'] ?? 0); ?>" required>
-                </p>
-                <p>
-                    <label for="stok">Jumlah Stok</label><br>
-                    <input type="number" id="stok" name="stok" min="0" value="<?php echo htmlspecialchars($buku['stok'] ?? 0); ?>" required>
-                </p>
-                <p>
-                    <label for="kategori">Kategori</label><br>
-                    <select id="kategori" name="kategori">
-                        <?php 
-                        $kategoriOptions = [
-                            'fiksi' => 'Novel',
-                            'non-fiksi' => 'Pelajaran',
-                            'referensi' => 'Cerita Fiksi'
-                        ];
-                        foreach ($kategoriOptions as $value => $label): 
-                        ?>
-                        <option value="<?php echo $value; ?>" <?php echo ($buku['kategori'] ?? '') === $value ? 'selected' : ''; ?>>
-                            <?php echo $label; ?>
-                        </option>
-                        <?php endforeach; ?>
-                    </select>
-                </p>
-                <p>
-                    <button type="submit">Update Buku</button>
-                </p>
+                    <p>
+                        <label for="kode_buku">Kode Buku</label><br>
+                        <input type="text" id="kode_buku" name="kode_buku" value="<?php echo htmlspecialchars($buku['kode'] ?? ''); ?>">
+                    </p>
+                    <p>
+                        <label for="judul">Judul Buku</label><br>
+                        <input type="text" id="judul" name="judul" value="<?php echo htmlspecialchars($buku['judul'] ?? ''); ?>" required>
+                    </p>
+                    <p>
+                        <label for="pengarang">Pengarang</label><br>
+                        <input type="text" id="pengarang" name="pengarang" value="<?php echo htmlspecialchars($buku['pengarang'] ?? ''); ?>" required>
+                    </p>
+                    <p>
+                        <label for="tahun">Tahun Terbit</label><br>
+                        <input type="number" id="tahun" name="tahun" min="1900" max="<?php echo date('Y'); ?>" value="<?php echo htmlspecialchars($buku['tahun'] ?? ''); ?>" required>
+                    </p>
+                    <p>
+                        <label for="harga">Harga (Rp)</label><br>
+                        <input type="number" id="harga" name="harga" min="0" value="<?php echo htmlspecialchars($buku['harga'] ?? 0); ?>" required>
+                    </p>
+                    <p>
+                        <label for="stok">Jumlah Stok</label><br>
+                        <input type="number" id="stok" name="stok" min="0" value="<?php echo htmlspecialchars($buku['stok'] ?? 0); ?>" required>
+                    </p>
+                    <p>
+                        <label for="kategori">Kategori</label><br>
+                        <select id="kategori" name="kategori">
+                            <?php 
+                            $kategoriOptions = [
+                                'fiksi' => 'Novel',
+                                'non-fiksi' => 'Pelajaran',
+                                'referensi' => 'Cerita Fiksi'
+                            ];
+                            foreach ($kategoriOptions as $value => $label): 
+                            ?>
+                            <option value="<?php echo $value; ?>" <?php echo ($buku['kategori'] ?? '') === $value ? 'selected' : ''; ?>>
+                                <?php echo $label; ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </p>
+                    <p>
+                        <button type="submit">Update Buku</button>
+                    </p>
             </form>
         </section>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

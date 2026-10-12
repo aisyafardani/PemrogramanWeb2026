@@ -32,6 +32,8 @@ if (!$transaksi) {
     <?php endif; ?>
 
     <form id="form-tambah" method="post" action="proses_edit.php">
+        <?php echo csrf_field(); ?>
+        
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($transaksi['id']); ?>">
         <p>
             <label for="no_nota">No. Nota / Transaksi</label><br>
